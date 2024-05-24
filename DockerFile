@@ -1,0 +1,12 @@
+FROM python:3.9
+
+WORKDIR /app
+
+RUN pip install transformers requests
+
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+COPY report_generator.py .
+
+CMD ["python", "report_generator.py"]
